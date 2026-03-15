@@ -48,7 +48,7 @@ class Account(db.Model):
     )
 
     account_no = db.Column(db.String(20), primary_key=True)
-    balance = db.Column(db.Float, nullable=False, default=0)
+    balance = db.Column(db.Numeric(12, 2), nullable=False, default=0)
     account_type = db.Column(db.String(20), nullable=False)
     cust_id = db.Column(db.String(20), db.ForeignKey("customer.cust_id"), nullable=False)
 
@@ -60,14 +60,14 @@ class Saving(db.Model):
     __tablename__ = "saving"
 
     account_no = db.Column(db.String(20), db.ForeignKey("account.account_no"), primary_key=True)
-    interest_rate = db.Column(db.Float, nullable=False, default=4.0)
+    interest_rate = db.Column(db.Numeric(5, 2), nullable=False, default=4.0)
 
 
 class Current(db.Model):
-    __tablename__ = "current"
+    __tablename__ = "current_account"
 
     account_no = db.Column(db.String(20), db.ForeignKey("account.account_no"), primary_key=True)
-    overdraft_limit = db.Column(db.Float, nullable=False, default=0)
+    overdraft_limit = db.Column(db.Numeric(12, 2), nullable=False, default=0)
 
 
 class Employee(db.Model):
@@ -87,7 +87,7 @@ class Loan(db.Model):
     __table_args__ = (CheckConstraint("amount > 0", name="chk_loan"),)
 
     loan_no = db.Column(db.String(20), primary_key=True)
-    amount = db.Column(db.Float, nullable=False)
+    amount = db.Column(db.Numeric(12, 2), nullable=False)
     cust_id = db.Column(db.String(20), db.ForeignKey("customer.cust_id"), nullable=False)
     status = db.Column(db.String(20), nullable=False, default="PENDING")
 
@@ -100,5 +100,5 @@ class Payment(db.Model):
 
     payment_no = db.Column(db.String(20), primary_key=True)
     payment_date = db.Column(db.Date, nullable=False, default=date.today)
-    payment_amount = db.Column(db.Float, nullable=False)
+    payment_amount = db.Column(db.Numeric(12, 2), nullable=False)
     loan_no = db.Column(db.String(20), db.ForeignKey("loan.loan_no"), nullable=False)
