@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loans</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="loans">
+  <div class="layout">
+    <aside class="sidebar"><h2>🏦 BankMS</h2><nav class="nav">
+      <a href="dashboard.html">Dashboard</a><a href="customers.html">Customers</a><a href="accounts.html">Accounts</a><a class="active" href="loans.html">Loans</a><a href="payments.html">Payments</a>
+    </nav></aside>
+    <main class="main">
+      <h1>Loan Module</h1>
+      <div id="alert" class="alert"></div>
+      <section class="panel">
+        <form id="loanForm">
+          <input name="loan_no" placeholder="Loan Number" required />
+          <input name="cust_id" placeholder="Customer ID" required />
+          <input name="amount" type="number" step="0.01" placeholder="Loan Amount" required />
+          <button type="submit">Apply Loan</button>
+        </form>
+      </section>
+      <section class="panel">
+        <form id="approveLoanForm">
+          <input name="loan_no" placeholder="Loan Number" required />
+          <button type="submit" class="secondary">Approve Loan</button>
+        </form>
+      </section>
+      <section class="panel"><div class="table-wrap"><table id="loanTable"></table></div></section>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

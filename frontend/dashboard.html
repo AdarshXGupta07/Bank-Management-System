@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="dashboard">
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>🏦 BankMS</h2>
+      <nav class="nav">
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="customers.html">Customers</a>
+        <a href="accounts.html">Accounts</a>
+        <a href="loans.html">Loans</a>
+        <a href="payments.html">Payments</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <h1>Dashboard</h1>
+      <div id="alert" class="alert"></div>
+      <section class="card-grid">
+        <div class="card"><h3>Total Customers</h3><p id="total_customers">0</p></div>
+        <div class="card"><h3>Total Accounts</h3><p id="total_accounts">0</p></div>
+        <div class="card"><h3>Total Loans</h3><p id="total_loans">0</p></div>
+        <div class="card"><h3>Total Branches</h3><p id="total_branches">0</p></div>
+      </section>
+      <section class="panel">
+        <h2>Branch Module</h2>
+        <form id="branchForm">
+          <input name="branch_code" placeholder="Branch Code" required />
+          <input name="branch_name" placeholder="Branch Name" required />
+          <input name="address" placeholder="Address" required />
+          <input name="bank_code" placeholder="Bank Code" required />
+          <button type="submit">Add Branch</button>
+        </form>
+        <div class="table-wrap"><table id="branchTable"></table></div>
+      </section>
+      <section class="panel">
+        <h2>Employee Module</h2>
+        <form id="employeeForm">
+          <input name="emp_id" placeholder="Employee ID" required />
+          <input name="emp_name" placeholder="Employee Name" required />
+          <input name="mobile_no" placeholder="Mobile Number" required />
+          <input name="address" placeholder="Address" required />
+          <button type="submit">Add Employee</button>
+        </form>
+        <form id="assignForm" style="margin-top:10px;">
+          <input name="emp_id" placeholder="Employee ID" required />
+          <input name="cust_id" placeholder="Customer ID" required />
+          <button type="submit" class="secondary">Assign to Customer</button>
+        </form>
+        <div class="table-wrap"><table id="employeeTable"></table></div>
+      </section>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
