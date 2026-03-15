@@ -1,0 +1,79 @@
+:root {
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --primary: #2563eb;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --danger: #dc2626;
+  --success: #16a34a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 240px;
+  background: #0f172a;
+  color: #fff;
+  padding: 24px 16px;
+}
+.sidebar h2 { margin-top: 0; font-size: 1.2rem; }
+.nav a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+.nav a:hover, .nav a.active { background: #1e293b; color: #fff; }
+.main { flex: 1; padding: 24px; }
+.card-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.card {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+.card h3 { margin: 0; font-size: 0.95rem; color: var(--muted); }
+.card p { margin: 8px 0 0; font-size: 1.6rem; font-weight: 700; }
+.panel {
+  background: var(--panel);
+  margin-top: 16px;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+input, select, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+button { background: var(--primary); color: #fff; border: none; cursor: pointer; }
+button.secondary { background: #475569; }
+button.danger { background: var(--danger); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+.alert { padding: 10px; border-radius: 8px; margin: 10px 0; display: none; }
+.alert.success { background: #dcfce7; color: #14532d; }
+.alert.error { background: #fee2e2; color: #7f1d1d; }
+.toolbar { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.pagination { margin-top: 10px; display: flex; gap: 8px; }
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; }
+}
